@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+<head>
+    <!-- essential meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
+    <!-- page info -->
+    <title>Travel Planner</title>
+    <meta name='description'
+        content='Sito per poter creare il proprio viaggio attraverso un form (sulla sinistra della pagina) con destinazione, data partenza, data ritorno e budget. Sulla destra si potranno (successivamente alla creazione) visualizzare i propri viaggi creati e qualora si volesse anche eliminarli'>
+    <meta name='author' content='Gaia Giachero'>
+
+    <!-- open graph - social media -->
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content='Travel Planner'>
+    <meta property='og:description'
+        content='Sito per poter creare il proprio viaggio attraverso un form (sulla sinistra della pagina) con destinazione, data partenza, data ritorno e budget. Sulla destra si potranno (successivamente alla creazione) visualizzare i propri viaggi creati e qualora si volesse anche eliminarli '>
+    <meta property='og:image' content='https://travelPlanner.com/travel.jpg'>
+    <meta property='og:url' content='https://travelPlanner.com'>
+
+    <!-- favicon for icon -->
+    <link rel='icon' type='image/x-icon' href='favicon.ico'>
+
+    <!-- stylesheet -->
+    <link rel='stylesheet' href='./assets/css/style.css'>
+
+    <!-- google fonts (optional) -->
+    <!--
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Your+Font&display=swap' rel='stylesheet'>
+    -->
+</head>
+
+<body>
+    <header>
+        <h1>TRAVEL PLANNER</h1>
+        <nav id="menu">
+            <a href="#">Home</a>
+            <a href="#">I Miei Viaggi</a>
+            <a href="#">Esplora</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="fotoCopertina.jpg" alt="foto di copertina con una meta generica">
+            <div class="hero-content">
+                <h2>Organizza il tuo prossimo viaggio</h2>
+                <p>Sogna. Pianifica. Parti.</p>
+            </div>
+        </section>
+        <section id="formCreazione">
+            <h2>CREA IL TUO VIAGGIO</h2>
+            <form class="form">
+                <label for="destinazione">Destinazione: </label>
+                <input type="text" id="destinazione" placeholder="Destinazione..." required>
+                <label for="partenza">Data partenza: </label>
+                <input type="date" id="partenza" required>
+                <label for="ritorno">Data ritorno: </label>
+                <input type="date" id="ritorno" required>
+                <label for="budget">Budget: </label>
+                <input type="number" id="budget" step="0.01" min="0" placeholder="Budget" required>
+                <!-- verrà intercettata l'azione di invio in JS con preventDefault() così da poter gestire il viaggio -->
+                <button type="submit">CREA IL VIAGGIO</button>
+            </form>
+        </section>
+        <section id="viaggiCreati">
+            <h2>I TUOI VIAGGI</h2>
+            <!-- empty state che verrà nascosto alla creazione del primo viaggio
+                    e verrà sostituita dal viaggio in sé -->
+            <div class="empty-state">
+                <p>✈</p>
+                <h3>Non hai ancora creato un viaggio.</h3>
+                <p>Inizia a organizzare la tua prossima avventura.</p>
+                <button type="button">CREA IL PRIMO</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- end of programs -->
+    <script src='./assets/js/scripts.js'></script>
+</body>
+
+</html>
