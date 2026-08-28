@@ -37,7 +37,7 @@
 
 <body>
     <header>
-        <h1>TRAVEL PLANNER</h1>
+        <h1>✧ TRAVEL PLANNER</h1>
         <nav id="menu">
             <a href="#">Home</a>
             <a href="#">I Miei Viaggi</a>
@@ -46,38 +46,48 @@
     </header>
     <main>
         <section class="hero">
-            <img src="fotoCopertina.jpg" alt="foto di copertina con una meta generica">
+            <img src="./assets/img/copertina.jpg" alt="foto di copertina con una meta generica">
             <div class="hero-content">
                 <h2>Organizza il tuo prossimo viaggio</h2>
                 <p>Sogna. Pianifica. Parti.</p>
             </div>
         </section>
-        <section id="formCreazione">
-            <h2>CREA IL TUO VIAGGIO</h2>
-            <form class="form">
-                <label for="destinazione">Destinazione: </label>
-                <input type="text" id="destinazione" placeholder="Destinazione..." required>
-                <label for="partenza">Data partenza: </label>
-                <input type="date" id="partenza" required>
-                <label for="ritorno">Data ritorno: </label>
-                <input type="date" id="ritorno" required>
-                <label for="budget">Budget: </label>
-                <input type="number" id="budget" step="0.01" min="0" placeholder="Budget" required>
-                <!-- verrà intercettata l'azione di invio in JS con preventDefault() così da poter gestire il viaggio -->
-                <button type="submit">CREA IL VIAGGIO</button>
-            </form>
-        </section>
-        <section id="viaggiCreati">
-            <h2>I TUOI VIAGGI</h2>
-            <!-- empty state che verrà nascosto alla creazione del primo viaggio
-                    e verrà sostituita dal viaggio in sé -->
-            <div class="empty-state">
-                <p>✈</p>
-                <h3>Non hai ancora creato un viaggio.</h3>
-                <p>Inizia a organizzare la tua prossima avventura.</p>
-                <button type="button">CREA IL PRIMO</button>
-            </div>
-        </section>
+        <div class="planner-layout">
+            <section id="formCreazione">
+                <h2>Crea il tuo viaggio</h2>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="destinazione"><span>➤</span> Destinazione: </label>
+                        <input type="text" id="destinazione" placeholder="Es. Roma, Parigi, Tokyo..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="partenza"><span>📅︎</span> Data partenza: </label>
+                        <input type="date" id="partenza" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ritorno"><span>📅︎</span> Data ritorno: </label>
+                        <input type="date" id="ritorno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget"><span>💵︎</span> Budget: </label>
+                        <input type="number" id="budget" step="0.01" min="0" placeholder="Es. 500" required>
+                    </div>
+                    <!-- verrà intercettata l'azione di invio in JS con preventDefault() così da poter gestire il viaggio -->
+                    <button type="submit" class="btn-primary">Crea il viaggio</button>
+                </form>
+            </section>
+            <section id="viaggiCreati">
+                <h2>I tuoi viaggi</h2>
+                <!-- empty state che verrà nascosto alla creazione del primo viaggio
+                        e verrà sostituita dal viaggio in sé -->
+                <div class="empty-state">
+                    <p>✈</p>
+                    <h3>Non hai ancora creato un viaggio.</h3>
+                    <p>Inizia a organizzare la tua prossima avventura.</p>
+                    <button type="button" class="btn-primary">Crea il tuo primo viaggio</button>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- end of programs -->
