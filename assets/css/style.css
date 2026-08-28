@@ -1,0 +1,303 @@
+:root {
+    --sfondo-principale: #F7EADB;
+    /* background generale */
+    --bianco-caldo: #FFFDF8;
+    /* superfici / input / card */
+    --testo-principale: #172A35;
+    /* titoli e testo importante */
+    --testo-secondario: #657078;
+    /* placeholder / informazioni secondarie */
+    --accento: #C9825B;
+    /* dettagli decorativi / piccoli elementi evidenziati */
+    --verde-teal: #55736C;
+    /* azioni principali / CTA */
+    --font-titolo: 'Times New Roman', Times, serif;
+    --font-base: Arial, Helvetica, sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--sfondo-principale);
+    font-family: var(--font-base);
+    color: var(--testo-principale);
+}
+
+/* ========================= HEADER ========================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+header h1 {
+    font-family: var(--font-titolo);
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+}
+
+/* ========================= NAVBAR ========================= */
+#menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#menu a {
+    position: relative;
+    text-decoration: none;
+    color: var(--testo-principale);
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+#menu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: -8px;
+    background-color: var(--accento);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+#menu a:hover {
+    color: var(--verde-teal);
+}
+
+#menu a:hover::after {
+    width: 100%;
+}
+
+/* ========================= MAIN ========================= */
+main {
+    max-width: 1400px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/* ========================= HERO ========================= */
+.hero {
+    width: 100%;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    width: 80%;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: var(--bianco-caldo);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-family: var(--font-titolo);
+    font-size: 3em;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+/* ========================= PLANNER LAYOUT ========================= */
+.planner-layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+#formCreazione,
+#viaggiCreati {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================= TITOLI SEZIONI ========================= */
+#formCreazione h2,
+#viaggiCreati h2 {
+    font-family: var(--font-titolo);
+    color: var(--testo-principale);
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ========================= FORM ========================= */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-family: var(--font-base);
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: var(--testo-principale);
+}
+
+.form-group span {
+    color: color-mix(in srgb,
+            var(--testo-principale),
+            white 20%);
+}
+
+/* ========================= INPUT ========================= */
+input {
+    background-color: var(--bianco-caldo);
+    border: 1px solid var(--testo-secondario);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-family: var(--font-base);
+    color: var(--testo-principale);
+}
+
+input[type="date"] {
+    color: var(--testo-principale);
+}
+
+input::placeholder,
+input[type="date"]::-webkit-datetime-edit {
+    color: var(--testo-secondario);
+    font-family: var(--font-base);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--verde-teal);
+}
+
+/* ========================= BUTTON ========================= */
+.btn-primary {
+    background-color: var(--verde-teal);
+    color: var(--bianco-caldo);
+    font-family: var(--font-titolo);
+    font-size: 1.1em;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--verde-teal), black 30%);
+    cursor: pointer;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+
+/* ========================= EMPTY STATE ========================= */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    padding: 50px 30px;
+    background-color: var(--bianco-caldo);
+    border-radius: 10px;
+    min-height: 300px;
+}
+
+.empty-state>p:first-child {
+    font-size: 2.5rem;
+    color: var(--accento);
+}
+
+.empty-state h3 {
+    font-family: var(--font-titolo);
+    font-size: 1.5rem;
+    color: var(--testo-principale);
+}
+
+.empty-state p:nth-of-type(2) {
+    color: var(--testo-secondario);
+    line-height: 1.5;
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #menu {
+        gap: 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .hero img {
+        height: 300px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .planner-layout {
+        flex-direction: column;
+        padding: 30px 0;
+        gap: 50px;
+    }
+
+    #formCreazione,
+    #viaggiCreati {
+        width: 100%;
+    }
+
+    #formCreazione h2,
+    #viaggiCreati h2 {
+        font-size: 2em;
+    }
+}
