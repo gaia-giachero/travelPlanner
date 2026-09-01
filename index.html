@@ -36,22 +36,24 @@
 </head>
 
 <body>
-    <header>
-        <h1>✧ TRAVEL PLANNER</h1>
-        <nav id="menu">
-            <a href="#">Home</a>
-            <a href="#">I Miei Viaggi</a>
-            <a href="#">Esplora</a>
-        </nav>
-    </header>
-    <main>
+    <div id="intro">
+        <header>
+            <h1>✧ TRAVEL PLANNER</h1>
+            <nav id="menu">
+                <a href="#">Home</a>
+                <a href="#">I Miei Viaggi</a>
+                <a href="#">Esplora</a>
+            </nav>
+        </header>
         <section class="hero">
-            <img src="./assets/img/copertina.jpg" alt="foto di copertina con una meta generica">
+            <!-- <img src="./assets/img/copertina.jpg" alt="foto di copertina con una meta generica"> -->
             <div class="hero-content">
                 <h2>Organizza il tuo prossimo viaggio</h2>
                 <p>Sogna. Pianifica. Parti.</p>
             </div>
         </section>
+    </div>
+    <main>
         <div class="planner-layout">
             <section id="formCreazione">
                 <h2>Crea il tuo viaggio</h2>
@@ -73,7 +75,7 @@
                         <input type="number" id="budget" step="0.01" min="0" placeholder="Es. 500" required>
                     </div>
                     <!-- verrà intercettata l'azione di invio in JS con preventDefault() così da poter gestire il viaggio -->
-                    <button type="submit" class="btn-primary">Crea il viaggio</button>
+                    <button type="submit" id="btnForm" class="btn-primary" disabled>Crea il viaggio</button>
                 </form>
             </section>
             <section id="viaggiCreati">
