@@ -7,6 +7,7 @@ const ritornoInput = document.getElementById("ritorno");
 const budgetInput = document.getElementById("budget");
 
 const viaggiContainer = document.getElementById("sezioneViaggi");
+const btnForm = document.getElementById("btnForm");
 
 // ============ DATI ============
 let viaggi = [];
@@ -14,6 +15,47 @@ let prossimoId = 1;
 
 // ============ EVENTI ============
 renderViaggi();
+
+form.addEventListener("input", function (event) {
+  if (destinazioneInput.value !== "") {
+    destinazioneInput.style.borderColor = "green";
+  } else {
+    destinazioneInput.style.borderColor = "red";
+  }
+
+  if (partenzaInput.value !== "" && ritornoInput.value !== "") {
+    if (partenzaInput.value < ritornoInput.value) {
+      partenzaInput.style.borderColor = "green";
+      ritornoInput.style.borderColor = "green";
+    } else {
+      partenzaInput.style.borderColor = "red";
+      ritornoInput.style.borderColor = "red";
+    }
+  } else {
+    partenzaInput.style.borderColor = "red";
+    ritornoInput.style.borderColor = "red";
+  }
+
+  if (Number(budgetInput.value) > 0) {
+    budgetInput.style.borderColor = "green";
+  } else {
+    budgetInput.style.borderColor = "red";
+  }
+
+  if (
+    destinazioneInput.value !== "" &&
+    partenzaInput.value !== "" &&
+    ritornoInput.value !== "" &&
+    partenzaInput.value < ritornoInput.value &&
+    Number(budgetInput.value) > 0
+  ) {
+    // bottone abilitato
+    btnForm.disabled = false;
+  } else {
+    // bottone disabilitato
+    btnForm.disabled = true;
+  }
+});
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -30,8 +72,12 @@ form.addEventListener("submit", function (event) {
   console.log(viaggi);
 
   prossimoId++;
+  
+  viaggi.sort((a, b) => new Date(a.partenza) - new Date(b.partenza));
 
   renderViaggi();
+
+  form.reset();
 });
 
 function renderViaggi() {
@@ -81,7 +127,7 @@ function renderViaggi() {
                     <h3>${viaggio.destinazione}</h3>
                     <p>✈ ${partenza} → ${ritorno}</p>
                     <p><span>Budget:</span> ${viaggio.budget} €</p>
-                    <button type="button" class="btn-primary">Elimina</button>
+                    <button type="button" data-id="${viaggio.id}" class="btn-primary">Elimina</button>
                 </div>
             `;
     }
@@ -90,3 +136,17 @@ function renderViaggi() {
     viaggiContainer.innerHTML = card;
   }
 }
+
+viaggiContainer.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btn-primary")) {
+    const id = Number(event.target.dataset.id);
+    const indice = viaggi.findIndex(function (viaggio) {
+      return viaggio.id === id;
+    });
+
+    viaggi.splice(indice, 1);
+    console.log(viaggi);
+
+    renderViaggi();
+  }
+});
